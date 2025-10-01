@@ -1,12 +1,101 @@
-/*omkar sharma
+/*
  * Chapter 4
  * COSC 1436
  */
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 int main()
 {
+    //demo
+  //  std::cout << "Enter a value";
+    //int number;
+    //std::cin >> number;
+
+   // std::cout << " prefix(++xx)=" << ++number << " ,x =" << number << std::endl;
+ //std::cout << " postfix(x++)=" << number++ << " ,x =" << number << std::endl;
+    //std::cout << " postfix(x--)=" << number-- << " ,x =" << number << std::endl;
+
+
+
+
+    //Display main menu
+    bool done = false;
+    while (!done)
+    {
+        std::cout << "Movie Library" << std::endl;
+        std::cout << "--------------" << std::endl;
+        std::cout << "Add Movie" << std::endl;
+        std::cout << "View Movies" << std::endl;
+        std::cout << "Edit Movie" << std::endl;
+        std::cout << "Delete Movie" << std::endl;
+        std::cout << "Quit" << std::endl;
+
+        char choice;
+        std::cin >> choice;
+
+
+    }
+
+    //Validate input
+    //if (choice == "A" || choice == "a")
+    //{
+    //    //TODO: Move add code here
+    //    std::cout << "Add not implemented" << std::endl;
+    //} else if (choice == "V" || choice == "v")
+    //{
+    //    //TODO: Movie view code here
+    //    std::cout << "View not implemented" << std::endl;
+    //} else if (choice == "E" || choice == "e")
+    //{
+    //    std::cout << "Edit Not implemented" << std::endl;
+    //} else if (choice == "D" || choice == "d")
+    //{
+    //    std::cout << "Delete Not implemented" << std::endl;
+    //} else if (choice == "Q" || choice == "q")
+    //{
+    //    return 0;
+    //} else
+    //{
+    //    std::cout << "Invalid choice" << std::endl;
+    //};
+    // Switch :: Replacement for an if-else-if where each if condition is Expr == Value
+    // switch-statement ::= switch (E) { case-statement* [ default-statement ] }
+    // case-statement ::= case E : S 
+    // default-statement ::= default : S
+    // break-statement ::= break ;
+    // 
+    // Switch expression must be either char or an integral expression
+    // case labels must be:
+    //   - Compile time constants (e.g. literal, simple expression)
+    //   - Unique within switch
+    // Case statements fall through to next case unless break statement used
+    // Default statement executes if no cases match expression
+    switch (choice)
+    {
+        case 'A': //td::cout << "Add not implemented" << std::endl; break;( we have only write last case oly if we want them to behave the same )
+        case 'a': std::cout << "Add not implemented" << std::endl; break;
+
+        case 'V':
+        case 'v':
+        { // declaring a variable 
+            //switch statment 
+            std::cout << "View not implemented" << std::endl;
+            break;
+        }
+        case 'D': 
+        case 'd': std::cout << "Delete not implemented" << std::endl; done = true; break;
+
+        case 'E': 
+        case 'e': std::cout << "Edit not implemented" << std::endl; done = true; break;
+
+        case 'Q': return 0;
+        case 'q': return 0;
+
+        default: std::cout << "Invalid choice" << std::endl;done = true; break;
+    };
+
     //Movie details
     std::string title;          //Required
     std::string description;    //Optional
@@ -17,6 +106,7 @@ int main()
 
     //Get movie details
     std::cout << "Enter movie title: ";
+    std::cin.ignore();
     std::getline(std::cin, title);
 
     //Title is required
@@ -25,12 +115,15 @@ int main()
         std::cout << "Title is required" << std::endl;
 
     std::cout << "Enter the run length (in minutes): ";
-    std::cin >> runLength;
-    if (runLength < 0)
+     /*runLength - 1;
+    while (runLength < 0)
     {
-        std::cout << "Run length must be at least 0" << std::endl;
-        runLength = 0;
-    };
+        std::cin >> runLength;
+        if (runLength<0)
+
+           std::cout << "ERROR: Run length must be at least 0" << std::endl;
+        
+    }*/
 
     std::cout << "Enter the release year (1900-2100): ";
     std::cin >> releaseYear;
@@ -43,16 +136,7 @@ int main()
         std::cout << "Release year must be between 1900 and 2100" << std::endl;
         releaseYear = 1900;
     }*/
-    switch (choice)
-    {
-        case 'A':std::cout << "Add not implemented" << std::endl;break;
-        case 'a':std::cout << "Add not implemented" << std::endl;break;
-            
-        case 'V': std::cout << "Add not implemented" << std::endl;break;
 
-
-
-    }
     // Logical AND &&   Eb && Eb => bool
     // Logical OR ||    Eb || Eb => bool
     // Logical NOT !    !Eb => bool
@@ -63,6 +147,7 @@ int main()
     }
 
     std::cout << "Enter the optional description: ";
+    std::cin.ignore();
     std::getline(std::cin, description);
 
     // Validate userRating
@@ -107,6 +192,7 @@ int main()
         isClassic = false;
     else
         std::cout << "You must enter either Y or N";*/
+    isClassic = false;
     if (_strcmpi(input.c_str(), "Y") == 0)
         isClassic = true;
     else
@@ -114,7 +200,33 @@ int main()
             isClassic = false;
         else
             std::cout << "You must enter either Y or N";
-    //TODO: Handle other values
+
+    // View movie
+    //    Title (Year)
+    //    Run Length # min
+    //    User Rating = ##
+    //    Is Classic? 
+    //    [Description]
+    std::cout << std::fixed << std::setprecision(1) << std::endl;
+    std::cout << title << " (" << releaseYear << ")" << std::endl;
+    std::cout << "Run Length " << runLength << " mins" << std::endl;
+    std::cout << "User Rating = " << userRating << std::endl;
+    //std::cout << "Is Classic? " << isClassic << std::endl;
+    /*if (isClassic)
+        std::cout << "Is Classic? Yes" << std::endl;
+    else
+        std::cout << "Is Classic? No" << std::endl;*/
+    /*std::string classicIndicator;
+    if (isClassic)
+        classicIndicator = "Yes";
+    else
+        classicIndicator = "No";*/
+    //Conditional_expression ::= Eb ? Et : Ef
+    //std::string classicIndicator = isClassic ? "Yes" : "No";
+    std::cout << "Is Classic? " << (isClassic ? "Yes" : "No") << std::endl;
+    if (description != "")
+        std::cout << description << std::endl;
+    std::cout << std::endl;
 }
 
 void relationalDemo()
@@ -159,14 +271,4 @@ void relationalDemo()
     //  < 0 ::= left < right
     //  == 0 ::= left == right
     areEqual = _strcmpi(name1.c_str(), name2.c_str()) == 0;
-
-
-
-
-
-
-
-
-
-
 }
