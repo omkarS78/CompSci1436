@@ -5,6 +5,16 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+//movie details
+struct Movie
+{
+    std::string title;//Required
+    std::string description;    //Optional
+    int runLength;              //Required, 0
+    int releaseYear;            //Optional, but between 1900-2100
+    double userRating;          //Optional, 1.0-10.0
+    bool isClassic;             //Required, false 
+}
 
 int main()
 {
@@ -18,11 +28,26 @@ int main()
     //std::cout << " postfix(x--)=" << number-- << " ,x =" << number << std::endl;
 
 
+    //demo nested loops 10X12
+    // 1 2 3 4 5
+    // 1 1 2 3 4 5 
+    //2 2 4 6 8 10
+    // 3 3 6 9 12 15
+   /* for (int rows = 0; rows < 12;++rows)
+    {
+        for (int cols = 0; cols < 10;++cols)
+            if ( cosl!=0)
+        {
+            std::cout << std::setw(4) << (rows * cols); //will be in quiz
 
-
+            
+        }
+        std::cout << std::endl;
+    }*/
+    
     //Display main menu
     bool done = false;
-    while (!done)
+   do// while (!done)
     {
         std::cout << "Movie Library" << std::endl;
         std::cout << "--------------" << std::endl;
@@ -95,19 +120,16 @@ int main()
 
         default: std::cout << "Invalid choice" << std::endl;done = true; break;
     };
-
-    //Movie details
-    std::string title;          //Required
-    std::string description;    //Optional
-    int runLength;              //Required, 0
-    int releaseYear;            //Optional, but between 1900-2100
-    double userRating;          //Optional, 1.0-10.0
-    bool isClassic;             //Required, false
+    //int id;
+    Movie movie = {0};
 
     //Get movie details
     std::cout << "Enter movie title: ";
     std::cin.ignore();
     std::getline(std::cin, title);
+    
+    while(movie.title=="")
+        
 
     //Title is required
     bool isEmpty = title == "";
@@ -115,11 +137,11 @@ int main()
         std::cout << "Title is required" << std::endl;
 
     std::cout << "Enter the run length (in minutes): ";
-     /*runLength - 1;
-    while (runLength < 0)
+     runLength - 1;
+    do//while (runLength < 0)
     {
         std::cin >> runLength;
-        if (runLength<0)
+        FF<0)
 
            std::cout << "ERROR: Run length must be at least 0" << std::endl;
         
@@ -145,6 +167,7 @@ int main()
         std::cout << "Release year must be between 1900 and 2100" << std::endl;
         releaseYear = 1900;
     }
+
 
     std::cout << "Enter the optional description: ";
     std::cin.ignore();
@@ -210,7 +233,7 @@ int main()
     std::cout << std::fixed << std::setprecision(1) << std::endl;
     std::cout << title << " (" << releaseYear << ")" << std::endl;
     std::cout << "Run Length " << runLength << " mins" << std::endl;
-    std::cout << "User Rating = " << userRating << std::endl;
+    std::cout << "User Rating = " << userRating << std::endl;F
     //std::cout << "Is Classic? " << isClassic << std::endl;
     /*if (isClassic)
         std::cout << "Is Classic? Yes" << std::endl;
