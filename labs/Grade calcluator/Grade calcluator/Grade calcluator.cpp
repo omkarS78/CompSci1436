@@ -9,7 +9,7 @@
 
 int main() {
     
-    std::cout << "Lab 1 - Grade Calculator" << std::endl;
+    std::cout << "Lab 1  Grade Calculator"<< std::endl;
     std::cout << "Omkar S" << std::endl;
     std::cout << "COSC 1436 C++ course" << std::endl << std::endl;
 
