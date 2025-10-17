@@ -181,6 +181,7 @@ void EditMovie(Movie movie)
 {
     DisplayWarning(" not implemented yet");
 }
+int main()
 {
 
     //Display main menu
