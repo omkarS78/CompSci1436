@@ -106,6 +106,14 @@ std::string ReadString(std::string message, bool isRequired)
 /// </remarks>
 void ViewMovie(Movie movie)
 {
+    if(movie.title == "")
+    {
+        DisplayWarning("No movie exist");
+        return;
+    }
+
+
+
     // View movie
     //    Title (Year)
     //    Run Length # min
@@ -174,6 +182,7 @@ void DeleteMovie(Movie movie)
     if (!Confirm("Are you sure you want to delete this movie?"))
         return;
     //TODO: Delete movie
+    //displaywarning ("not implemented yet");
     DisplayWarning("Delete not implemented");
 
 }
