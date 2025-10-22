@@ -17,6 +17,9 @@ struct Movie
     std::string genres;         //Optional (comma separated list of genres)
 };
 
+//DO NOT DO THIS!!!
+//int g_thisIsAGlobalVariable = 100;
+
 /// <summary>Defines possible foreground colors.</summary>
 enum class ForegroundColor {
     Black = 30,
@@ -29,8 +32,11 @@ enum class ForegroundColor {
     BrightYellow = 93,
     BrightCyan = 96
 };
-//function prototypes/ forward declarations 
+
+//Function prototypes
+//Forward declarations/referencing
 void DisplayError(std::string);
+
 void ResetTextColor()
 {
     std::cout << "\033[0m";
@@ -83,6 +89,25 @@ void DisplayWarning(std::string message)
     ResetTextColor();
 }
 
+int ReadInt(int minimumValue, int maximumValue)
+{
+    do
+    {
+        int value;
+        std::cin >> value;
+
+        if (value >= minimumValue && value <= maximumValue)
+            return value;
+
+        DisplayError("Value is outside range");
+    } while (true);
+
+}
+int ReadInt(int minimumValue)
+{
+    return ReadInt(minimumValue, INT_MAX);
+
+}
 std::string ReadString(std::string message, bool isRequired)
 {
     std::cout << message;
@@ -93,7 +118,7 @@ std::string ReadString(std::string message, bool isRequired)
     while (isRequired && input == "")
     {
         DisplayError("Value is required");
-        
+
         std::getline(std::cin, input);
     }
 
@@ -106,13 +131,11 @@ std::string ReadString(std::string message, bool isRequired)
 /// </remarks>
 void ViewMovie(Movie movie)
 {
-    if(movie.title == "")
+    if (movie.title == "")
     {
-        DisplayWarning("No movie exist");
+        DisplayWarning("No movies exist");
         return;
     }
-
-
 
     // View movie
     //    Title (Year)
@@ -139,24 +162,11 @@ Movie AddMovie()
     movie.title = ReadString("Enter movie title: ", true);
 
     std::cout << "Enter the run length (in minutes): ";
-    do
-    {
-        std::cin >> movie.runLength;
-
-        //Error
-        if (movie.runLength < 0)
-            DisplayError("Run length must be at least 0");
-
-    } while (movie.runLength < 0);
+    movie.runLength = ReadInt(0);
 
     std::cout << "Enter the release year (1900-2100): ";
     std::cin >> movie.releaseYear;
-    while (movie.releaseYear < 1900 || movie.releaseYear > 2100)
-    {
-        DisplayError("Release year must be between 1900 and 2100");
-
-        std::cin >> movie.releaseYear;
-    }
+    movie.releaseYear = ReadInt(1900, 2100);
 
     movie.description = ReadString("Enter the optional description: ", false);
 
@@ -177,23 +187,25 @@ Movie AddMovie()
     return movie;
 }
 
-void DeleteMovie(Movie movie)
+void DeleteMovie(Movie& movie)
 {
-    if (!Confirm("Are you sure you want to delete this movie?"))
+    if (!Confirm("Are you sure you want to delete " + movie.title + "?"))
         return;
-    //TODO: Delete movie
-    //displaywarning ("not implemented yet");
-    DisplayWarning("Delete not implemented");
 
+    //TODO: Delete movie
+    //DisplayWarning("Not implemented yet");
+    movie.title = "";
 }
-void EditMovie(Movie movie)
+
+void EditMovie(Movie& movie)
 {
-    DisplayWarning(" not implemented yet");
+    DisplayWarning("Not implemented yet");
 }
+
 int main()
 {
-
     //Display main menu
+    Movie movie;
     bool done = false;
     do
     {
@@ -208,8 +220,6 @@ int main()
         char choice;
         std::cin >> choice;
 
-        Movie movie;
-
         switch (choice)
         {
             case 'A':
@@ -219,10 +229,10 @@ int main()
             case 'v': ViewMovie(movie); break;
 
             case 'D':
-            case 'd': DisplayWarning(movie); break;
+            case 'd': DeleteMovie(movie); break;
 
             case 'E':
-            case 'e': DisplayWarning( Movie); break;
+            case 'e': EditMovie(movie); break;
 
             case 'Q':
             case 'q': done = true;
@@ -235,11 +245,3 @@ int main()
     // Function call ::= func () 
     //ViewMovie();
 }
-// never use gobal scope ( unrestricted scope)
-// just use the meomory scope 
-// 2nd maintianible 
-//3rd do not isolate functions 
-
-// examles int g_thisIsGobalsVariales:( outside any functions is a gobal variable)
-// do not declear any function outside of the functions
-//
