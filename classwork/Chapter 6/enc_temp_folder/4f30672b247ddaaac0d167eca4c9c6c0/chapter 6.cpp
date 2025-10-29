@@ -101,13 +101,13 @@ int ReadInt(int minimumValue, int maximumValue)
 
         DisplayError("Value is outside range");
     } while (true);
-}
 
+}
 int ReadInt(int minimumValue)
 {
     return ReadInt(minimumValue, INT_MAX);
-}
 
+}
 std::string ReadString(std::string message, bool isRequired)
 {
     std::cout << message;
@@ -201,120 +201,17 @@ void EditMovie(Movie& movie)
 {
     DisplayWarning("Not implemented yet");
 }
-
-//Test function overloading
-void Display(int value)
-{
-    std::cout << "int" << std::endl;
-}
-
-void Display(double value)
-{
-    std::cout << "double" << std::endl;
-}
-
-void Display(float value)
-{
-    std::cout << "float" << std::endl;
-}
-
-void Display(short value1, double value2)
-{
-    std::cout << "int, double" << std::endl;
-}
-
-void Display(short value, float)
-{
-    std::cout << "short, float" << std::endl;
-}
-
-void Display(int, short)
-{
-    std::cout << "int, short" << std::endl;
-}
-
-void Display(short, int)
-{
-    std::cout << "int, short" << std::endl;
-}
-
-//void TestFunctionOverloading()
-//{ 
-//    Display(10);   //Display(int)
-//    Display(4.56); // Display(double)
-//    Display((short)34);  // Display(int) -> shortest type coercion
-//    Display(10, 4.56F);  // Display(int, double)
-//
-//    long lValue = 10000L;
-//    Display(lValue, 4.56);
-//
-//    //Display("Hello", 4.56); //Compiler error, no matches
-//    //Display(10, "Hello");   //Compiler error, no matches
-//
-//    Display('c', 4.56F);   // short, float
-//    Display((short)5, (short)10);
-//}
-
 int Factorial(int value)
 {
-    if (value <= 1)
-        return 1;
-
     return value * Factorial(value - 1);
-}
-
-void ArrayDemo()
-{
-
-    const int MaxNumbers = 100;
-    //int numbers[MaxNumbers];
-    //int numbers[100];
-    //int array {0}
-    int number[Maxnumbers] = {0};
-
-    //days and month
-    /*int daysInMonth[12] = {0};
-    daysInMonth[0] = daysInMonth[2] = daysInMonth[4] = daysInMonth[6] = daysInMonth[7] = daysInMonth[0]
-       =daysInMonth[0] = daysInMonth[0] = daysInMonth[0] = 31;
-
-    daysInMonth[0] = 28;
-    *///daysInMonth[0] =
-    int daysInmonth[12] = {31, 28 , 31 , 30, 31 , 30 , 31 ,31 ,30 , 31, 30 ,31}
-
-    //Set each element to its element number (element 1 = 1, element 2 = 2, etc)
-    //Approach 1 for small arrays only
-    int daysInmonth[] = {31, 28 , 31 , 30, 31 , 30 , 31 ,31 ,30 , 31, 30 ,31}
-   // impiclited array sizing 
-
-    numbers[0] = 1;
-    numbers[1] = 2;
-    numbers[2] = 3;
-
-    //Approach 2 for any array
-    for (int index = 0; index < MaxNumbers; ++index)
-        numbers[index] = index + 1;
-
-    for (int index = 0; index < MaxNumbers; ++index)
-        std::cout << numbers[index] << std::endl;
 }
 
 int main()
 {
-    ArrayDemo();
-    //std::cout << Factorial(5) << std::endl;
-
-    //Cannot calculate the size of an array at runtime so use a const int variable
-    const int MaximumMovies = 100;
-
-    //TODO: Leaving this for now to avoid breaking code
-    Movie movie;
-    Movie movies[MaximumMovies];
-
-    // Array operator []
-    //    A[index] = behaves like a variable
-    Movie firstElement = movies[0];
+    std::cout << Factorial(5) << std::endl;
 
     //Display main menu
+    Movie movie;
     bool done = false;
     do
     {
@@ -352,6 +249,5 @@ int main()
 
     //std::cin.ignore();
     // Function call ::= func () 
-    //ViewMovie();    
+    //ViewMovie();
 }
-
