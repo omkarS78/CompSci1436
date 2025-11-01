@@ -30,12 +30,12 @@ int main() { // introduction
       std::cout << "Do you want the results in meters or feet? (m/f): ";
        std::cin >> unitChoice; std::cout << std::endl;
 
-    // unit input 
+      // unit input 
        while (unitChoice != 'm' && unitChoice != 'M' && unitChoice != 'f' && unitChoice != 'F') // this one same as the assigment 4 im using while loop to validate input 
        {
-      std::cout << "ERROR: Please enter 'm' for meters or 'f' for feet." << std::endl;
+        std::cout << "ERROR: Please enter 'm' for meters or 'f' for feet." << std::endl;
          std::cout << "Do you want the results in meters or feet? (m/f): ";  std::cin >> unitChoice;
-       std::cout << std::endl;
+        std::cout << std::endl;
        }
           bool useFeet = (unitChoice == 'f' || unitChoice == 'F');
       std::string distUnit = useFeet ? "ft" : "m";
