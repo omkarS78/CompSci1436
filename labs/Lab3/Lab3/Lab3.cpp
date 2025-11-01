@@ -41,7 +41,7 @@ int main() { // introduction
       std::string distUnit = useFeet ? "ft" : "m";
         std::string velUnit = useFeet ? "ft/s" : "m/s";
 
-      // im using  const char to avoid and im using std just in case annswer is asked from different compiler
+       // im using  const char to avoid and im using std just in case annswer is asked from different compiler
       std::string distanceHeader = std::string("Distance (") + distUnit + ")";
        std::string velocityHeader = std::string("Velocity (") + velUnit + ")";
 
