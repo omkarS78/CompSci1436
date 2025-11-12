@@ -302,15 +302,6 @@ void PointerDemo()
     {
         pFloat = new float;
         *pFloat = index;
-
-        //Deleting a pointer twice will crash or corrupt memory
-        delete pFloat;
-        pFloat = nullptr;
-
-        //Ensure you call delete for each pointer you allocate using new
-        delete pFloat;
-        pFloat = nullpttr;
-        //*pFloat = index; //Using a deallocated pointer may crash or corrupt
     }
 
     //Pointer assignment must exactly match the types used (no coercion)
