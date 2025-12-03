@@ -106,7 +106,88 @@ void CStringDemo()
     // or char const* for C strings that are const
 }
 
+void CStringFunctions()
+{
+    //Always init C strings to null
+    const int MaxInputSize = 100;
+    char input[MaxInputSize + 1] = {0};
+    char output[MaxInputSize + 1] = {0};
+
+    std::cout << "Input a value: ";
+    std::cin >> input;
+
+    //Common C string functions - #include <cstring>
+    int len = strlen(input);  //strlen(string) size_t :: returns size of string
+
+    //Copying a string
+    // std::string str;
+    // str = "Hello";
+    strcpy(output, input);   // strcpy(target, source) :: Copies source to target
+                             // It will null terminate the target string
+                             // If output is exactly the length of input then no NULL is written
+                             // If output is smaller than input then it overwrites memory (security vuln)
+    strncpy(output, input, MaxInputSize); //Strcpy(target, source, maxsize) :: Copies up to maxSize characters
+
+    //Concat a string
+    // str += " Done";
+    strcat(output, " Done");  // Concats the second string to the end of the first string
+    strncat(output, " Done", MaxInputSize);
+
+    //Comparison
+    //str1 == str2
+    strcmp(output, input); // Compares 2 strings, case sensitive (>0, =0, <0)
+    _stricmp(output, input); //Case insensitive
+    strncmp(output, input, MaxInputSize); //Compares up 2max size characters
+    char * pos = strstr(input, "a");//Find substring in string, returns pointer to first occurrence or NULLptr if not found 
+    
+    // converison 
+    int  value = atoi("123");
+    value = atoi("123abc ");
+    value = atoi("abc");
+    
+    //atol -> parses a string to a long
+    // atol --> parses a string to a floating point value (double)
+    
+    char* end;
+    value = strtol("123abc", &end, 0); //Parses a string to a long, end points to first invalid character
+}
+
 int main()
 {
     CharFunctionDemo();
 }
+Void CplusplusStringFunction ()
+{
+    std::cout <<
+        std::cin >> input;
+    // Copy a string 
+    output = input;
+    // Concat a string
+    output += " Done";
+    // Compare
+    bool isEqual = input == output;
+    // length of string
+    int len = input.length(); //strlen (input)
+    bool isEmpty = input == "";
+    isEmpty = input.length() == 0;
+    isEmpty = input.empty(); //rturn empyt if not it comes not empty 
+    
+    //Resetting a string
+    output + ""; //strng(output ,"")
+    output.clear(); //clears Astring
+
+    //Modication 
+    output.append(" Done"); //string(output ,"Done");
+    //output.insert()
+
+    //Find strings
+    input.find("a");
+    input.subtring sub = input.substr(10);
+    sub = input.substr(10, 4);
+    
+    Const char* ptr = input.c_str();
+
+
+
+
+
