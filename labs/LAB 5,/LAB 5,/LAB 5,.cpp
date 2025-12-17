@@ -1,6 +1,7 @@
 // Course: COSC 1436
 // Semester: Fall 2025
-// Lab 5 - Trip M
+// Lab 5 - Trip 
+//name :omkar sharma
 
 #include <iostream>
 #include <string>
@@ -13,11 +14,10 @@
 /// Print basic program info
 void ShowHeader()
 {
-    std::cout << "----------------------------------\n";
-    std::cout << " Lab 5 - Trip Planner\n";
+        std::cout << " Lab 5 - Trip Planner\n";
     std::cout << "  Omkar sharma\n";
         std::cout << " COSC 1436 - Fall 2025\n";
-    std::cout << "----------------------------------\n\n";
+    std::cout ;
 }
 
 /// Clear leftover input
@@ -32,7 +32,7 @@ void PrintError(const std::string& msg)
     std::cout << "ERROR: " << msg << std::endl;
 }
 
-/// Yes/No confirmation
+/// Yes/No confirmatin
 bool AskYesNo(const std::string& msg)
 {
     std::string answer;
