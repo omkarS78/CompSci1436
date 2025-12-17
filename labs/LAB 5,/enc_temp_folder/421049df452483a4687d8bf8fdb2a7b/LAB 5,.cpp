@@ -1,7 +1,7 @@
 // Course: COSC 1436
 // Semester: Fall 2025
 // Lab 5 - Trip 
-//Name :omkar sharma
+//name :omkar sharma
 
 #include <iostream>
 #include <string>
