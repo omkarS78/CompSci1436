@@ -176,7 +176,7 @@ int main()
         std::cin >> choice;
         ClearInput();
 
-        switch (choice)
+        switch (choice) // sotory 8
         {
             case 'A':
             case 'a': AddStop(trip); break;
